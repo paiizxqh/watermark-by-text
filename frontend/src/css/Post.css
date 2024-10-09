@@ -1,0 +1,36 @@
+.post-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden; /* Prevents image overflow */
+}
+
+.post-card:hover {
+  transform: scale(1.05); /* Slightly enlarges the card on hover */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
+}
+
+.card-img-top {
+  height: 200px; /* Fixed height for images */
+  object-fit: cover; /* Ensures image covers the space */
+}
+
+.card-title {
+  font-weight: bold; /* Bold title */
+  font-size: 1.2rem; /* Larger title */
+  color: #343a40; /* Darker text color */
+}
+
+.card-category {
+  font-style: italic; /* Italicized created date */
+  color: #6c757d; /* Muted text color */
+}
+
+.btn-outline-primary {
+  border-radius: 20px; /* Rounded button */
+  padding: 5px 15px; /* Padding for button */
+}
+
+.user {
+  font-size: 0.9rem; /* Smaller font size for user ID */
+  color: #495057; /* Muted text color */
+}

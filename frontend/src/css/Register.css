@@ -1,0 +1,13 @@
+.register-container {
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .text-danger {
+    margin-bottom: 15px;
+  }
+  
+  .text-success {
+    margin-bottom: 15px;
+  }
+  

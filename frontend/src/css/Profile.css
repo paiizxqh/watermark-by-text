@@ -1,0 +1,118 @@
+.container {
+  display:contents;
+}
+
+.profile-container {
+  flex-direction: column;
+}
+
+.profile-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.username {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.email {
+  color: gray;
+}
+
+.logout-button {
+  background-color: #ff4c4c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.post-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.post-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.upload-button {
+  background-color: #1DA1F2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.post-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 10px;
+  width: 100%;
+}
+
+.post-card {
+  margin: 20px;
+  display: flex;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-image {
+  width: 100%;
+  height: auto;
+}
+
+.post-content {
+  padding: 10px;
+}
+
+.post-description {
+  margin: 0;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.image-preview {
+  max-width: 100%;
+  margin: 10px 0;
+}
