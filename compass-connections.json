@@ -8,11 +8,12 @@
       "id": "c9dd9043-f312-47b6-8b30-59f36caad62a",
       "lastUsed": {
         "$date": {
-          "$numberLong": "1729243388149"
+          "$numberLong": "1729255589055"
         }
       },
       "favorite": {
         "name": "watermark.bzmu5.mongodb.net"
+      },
       "savedConnectionType": "recent",
       "connectionOptions": {
         "connectionString": "mongodb+srv://thanakritphk:f9vsq527gwbcTbSl@watermark.bzmu5.mongodb.net/",
