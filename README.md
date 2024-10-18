@@ -176,8 +176,8 @@ Handles image upload, watermarking, and steganography.
 2. Set up environment variables:
    Create a `.env` file in the root directory and add:
    ```
-   MONGO_URI=your_mongodb_connection_string
-   PORT=5000
+   MONGO_URI=mongodb+srv://thanakritphk:f9vsq527gwbcTbSl@watermark.bzmu5.mongodb.net/WaterMark?retryWrites=true&w=majority&appName=WaterMark
+   JWT_SECRET=your_jwt_secret_key
    ```
 
 3. Run the server:
