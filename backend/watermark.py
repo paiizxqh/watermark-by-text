@@ -5,9 +5,25 @@ import os
 from io import BytesIO
 from PIL import Image
 from flask_cors import CORS
+from hashlib import sha256
+from stegano import lsb
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import pad, unpad
+import base64
 
 app = Flask(__name__)
 CORS(app, origins=['http://localhost:3000'])
+
+def encrypt_message(message, key):
+    key = key.encode('utf-8')  # แปลงคีย์เป็นไบต์
+    cipher = AES.new(key, AES.MODE_CBC)
+    iv = cipher.iv
+    encrypted_message = cipher.encrypt(pad(message.encode(), AES.block_size))
+    return base64.b64encode(iv + encrypted_message).decode('utf-8')
+
+def hide_message_in_image(image_path, encrypted_message, output_image_path):
+    image_with_secret = lsb.hide(image_path, encrypted_message)
+    image_with_secret.save(output_image_path)
 
 def create_rotated_text_image(width, height, text):
     image = np.zeros((height, width, 4), dtype="uint8")
@@ -54,7 +70,7 @@ def watermark_image():
 
     file = request.files['image']
     text = request.form.get('username', 'User')  # ใช้ 'aaaa' เป็นค่าเริ่มต้นถ้าไม่มีการระบุ  # ข้อความลายน้ำ, ถ้าไม่ใส่ใช้ค่า default
-
+    key = 'qwertyuiopasdfgh'
     # อ่านภาพจากไฟล์ที่อัปโหลด
     image = Image.open(file.stream)
     image_np = np.array(image)
@@ -82,8 +98,22 @@ def watermark_image():
     watermarked_pil.save(buffer, format="PNG")
     buffer.seek(0)
 
+    ####
+    temp_image_path = 'temp_image.png'
+    watermarked_pil.save(temp_image_path)
+
+    # เข้ารหัสข้อความลับ
+    encrypted_message = encrypt_message(text, key)
+
+    # ฝังข้อความเข้ารหัสลงในภาพ
+    output_image_path = 'output_image.png'
+    hide_message_in_image(temp_image_path, encrypted_message, output_image_path)
+
     # ส่งไฟล์ภาพกลับไปเป็นไฟล์แนบ
-    return send_file(buffer, mimetype='image/png', as_attachment=True, download_name='watermarked_image.png')
+    return send_file(output_image_path, mimetype='image/png', as_attachment=True, download_name='watermarked_and_encrypted_image.png')
+    ####
+    # ส่งไฟล์ภาพกลับไปเป็นไฟล์แนบ
+    # return send_file(buffer, mimetype='image/png', as_attachment=True, download_name='watermarked_image.png')
 
 if __name__ == '__main__':
     app.run(port=4000, debug=True)
