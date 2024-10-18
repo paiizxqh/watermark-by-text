@@ -27,7 +27,7 @@ const auth = (req, res, next) => {
 // ตั้งค่า multer สำหรับการอัปโหลดภาพ
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads/original'); // กำหนดโฟลเดอร์สำหรับเก็บรูปภาพ
+    cb(null, 'uploads/watermarked'); // กำหนดโฟลเดอร์สำหรับเก็บรูปภาพ
   },
   filename: (req, file, cb) => {
     cb(null, Date.now() + '-' + file.originalname); // ตั้งชื่อไฟล์ให้ไม่ซ้ำ
@@ -35,6 +35,7 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
+// เรียก watermark.py ใส่ลายน้ำและเข้ารหัสข้อความลับ
 
 // เส้นทางสำหรับโพสต์ข้อมูลใหม่ (รวมทั้งอัปโหลดรูปภาพ)
 router.post('/', auth, upload.single('image'), async (req, res) => {

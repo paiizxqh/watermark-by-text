@@ -1,36 +1,136 @@
-.post-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.home-content {
+  padding: 20px;
+  background-color: #f7f7f7; /* Light background for contrast */
+}
+
+.home-post-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* Centering posts */
+}
+
+.home-post {
+  border: 1px solid #ddd;
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px;
+  width: 300px;
+  cursor: pointer;
+  transition: box-shadow 0.3s, transform 0.3s; /* Adding shadow and scale effect on hover */
+}
+
+.home-post:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+  transform: translateY(-3px); /* Slight upward motion on hover */
+}
+
+.home-post-image {
+  width: 100%;
+  height: 200px; /* Adjusted height for better aspect ratio */
+  object-fit: cover;
+  border-radius: 8px; /* Matching card corners */
+}
+
+.home-post-info {
+  margin-top: 10px;
+}
+
+.home-post-title {
+  font-size: 1.2em; /* Slightly larger title */
+  margin-bottom: 5px;
+  color: #333; /* Darker color for better readability */
+}
+
+.home-post-description {
+  font-size: 0.9em; /* Smaller description text */
+  color: #666; /* Gray for less emphasis */
+}
+
+.home-post-timestamp {
+  font-size: 0.8em;
+  color: gray;
+  margin-top: 5px; /* Spacing for clarity */
+}
+
+.home-close-button {
+  float: right;
+  cursor: pointer;
+  font-size: 1.5em;
+  color: #333; /* Darker color for visibility */
+}
+
+.home-image-preview {
+  margin-top: 10px;
+}
+
+.home-preview-img {
+  width: 100%;
+  border-radius: 5px; /* Slightly rounded corners for previews */
+}
+
+.home-submit-btn {
+  margin-top: 10px;
+  padding: 10px 15px; /* More padding for better usability */
+  background-color: #28a745; /* Green for submission */
+  color: white;
+  border: none;
+  border-radius: 5px; /* Rounded corners for buttons */
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.home-submit-btn:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+.new-post-btn {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.new-post-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Darker background for focus */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensures modal appears on top */
+}
+
+.modal-dialog {
+  max-width: 600px; /* Set a max width for the modal */
+  width: 90%; /* Responsive width */
+  margin: 0 auto; /* Center the modal horizontally */
+}
+
+.modal-content {
+  background-color: white; /* White background for the modal */
+  padding: 20px; /* Spacing inside the modal */
   border-radius: 10px; /* Rounded corners */
-  overflow: hidden; /* Prevents image overflow */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow for depth */
 }
 
-.post-card:hover {
-  transform: scale(1.05); /* Slightly enlarges the card on hover */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
+.close {
+  cursor: pointer;
+  font-size: 1.5rem; /* Increase close button size */
+  color: #aaa; /* Light gray color for the close button */
+  float: right; /* Position close button to the right */
 }
 
-.card-img-top {
-  height: 200px; /* Fixed height for images */
-  object-fit: cover; /* Ensures image covers the space */
-}
-
-.card-title {
-  font-weight: bold; /* Bold title */
-  font-size: 1.2rem; /* Larger title */
-  color: #343a40; /* Darker text color */
-}
-
-.card-category {
-  font-style: italic; /* Italicized created date */
-  color: #6c757d; /* Muted text color */
-}
-
-.btn-outline-primary {
-  border-radius: 20px; /* Rounded button */
-  padding: 5px 15px; /* Padding for button */
-}
-
-.user {
-  font-size: 0.9rem; /* Smaller font size for user ID */
-  color: #495057; /* Muted text color */
+.close:hover {
+  color: black; /* Darken close button on hover */
 }

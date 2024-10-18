@@ -36,3 +36,38 @@
     transform: rotate(360deg);
   }
 }
+
+.app-container {
+  display: contents;
+  min-height: 100vh;
+}
+
+.main-content {
+  margin-left: 250px; /* ต้องให้ตรงกับความกว้างของ Sidebar */
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.sidebar {
+  width: 250px; /* ปรับขนาด Sidebar ที่เหมาะสม */
+  position: fixed; /* ทำให้ Sidebar ยึดติดอยู่ที่ด้านซ้าย */
+  height: 100vh; /* ให้ Sidebar ครอบคลุมความสูงทั้งหมด */
+  background-color: #333; /* หรือสีที่คุณต้องการ */
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute; /* เปลี่ยนให้ Sidebar ซ่อนเมื่อเป็นหน้าจอขนาดเล็ก */
+    left: -250px; /* ปิด Sidebar */
+    transition: left 0.3s ease;
+  }
+
+  .sidebar.active {
+    left: 0; /* แสดง Sidebar เมื่อผู้ใช้คลิก */
+  }
+
+  .main-content {
+    margin-left: 0; /* ปรับให้ไม่มีการทับกัน */
+  }
+}
+

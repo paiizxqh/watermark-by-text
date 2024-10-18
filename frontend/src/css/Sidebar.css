@@ -1,0 +1,53 @@
+.sidebar {
+  background-color: #002b5b;
+  height: 100vh;
+  width: 70px; /* ขนาดเริ่มต้นของ Sidebar */
+  position: fixed;
+  transition: width 0.3s ease-in-out;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.sidebar-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar-logo {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  transition: width 0.3s ease-in-out;
+}
+
+.sidebar-item {
+  padding: 15px;
+  transition: background-color 0.3s, padding-left 0.3s;
+  font-size: 1.5rem; /* Adjust icon size */
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.sidebar-item i {
+  margin-right: 10px;
+  font-size: 1.5rem;
+  transition: transform 0.3s;
+}
+
+.sidebar-footer {
+  margin-bottom: 20px;
+}
+
+.sidebar-footer button {
+  background-color: #4e73df;
+  border: none;
+  width: 80%;
+}
