@@ -88,6 +88,7 @@ function Post() {
     formData.append('image', imageFile);
     formData.append('description', description);
     formData.append("username", user.username);
+
   
     console.log('FormData for watermark:', formData); // Log ข้อมูลที่กำลังจะส่งไปยัง API Python
 

@@ -108,6 +108,7 @@ function Home() {
               <div className="home-post-info">
                 <h3 className="home-post-description">{post.description}</h3>
                 <p className="home-post-user">Posted by: {post.user.username}</p>
+                <p className="home-post-user">Email: {post.user.email}</p>
                 <p className="home-post-timestamp">{new Date(post.createdAt).toLocaleString()}</p>
               </div>
             </div>
