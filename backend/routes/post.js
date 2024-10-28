@@ -71,7 +71,7 @@ router.get('/', auth, async (req, res) => {
   // เส้นทางสำหรับดึงโพสต์ทั้งหมด (ไม่ต้องใช้ token)
 router.get('/all', async (req, res) => {
     try {
-      const posts = await Post.find().populate('user', 'username'); // ดึงโพสต์ทั้งหมดพร้อมข้อมูลผู้ใช้ (เช่นชื่อผู้ใช้)
+      const posts = await Post.find().populate('user', 'username email'); // ดึงโพสต์ทั้งหมดพร้อมข้อมูลผู้ใช้ (เช่นชื่อผู้ใช้)
       res.status(200).json(posts); // ส่งโพสต์ทั้งหมดกลับไปยัง frontend
     } catch (error) {
       console.error('Error fetching posts:', error);
